@@ -32,7 +32,7 @@ div{
 	Gst: <input type="number" name="gst"id="gstvalue" value="10" readonly> <br />
 	<br />
 	<h1 style="color: Green">SENIOR CITIZEN AND GENDER</h1>
-	<input type="checkbox" name="seniorcitizenp" id="seniorcitizenp" value="Y" required>Seniour Citizen <br />
+	<input type="checkbox" name="seniorcitizenp" id="seniorcitizenp" value="Y" >Seniour Citizen <br />
 	<br />
 	<label>Gender</label> <br />
 	<input type="radio" name="gender" value="M" id="genderselection" required>Male
@@ -44,6 +44,14 @@ div{
     </form>
     <script>
         function Bookingtym(){
+		let senior= document.querySelector("#seniorcitizenp").value;
+		if(senior=="Y")
+		{
+			alert("senior citizen offer available for u");
+		}
+		else{
+			alert("senior citizen offer not available for u");
+		}
             event.preventDefault();
             window.location.href="seniorCitizen.html";
         }          
