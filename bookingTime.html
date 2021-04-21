@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>BookingTime</title>
+<style>
+div{
+    width: 400px;
+    height : 400px;
+    padding: 80px;
+    margin: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            background: gold;
+
+}
+</style>
+</head>
+<body>  
+    <center>
+	<h1 style="color: Green">JOURNEY DATE</h1>
+	<br />
+	<form action onsubmit = "Bookingtym()"> 
+            <div id="">
+    <label>Journey Date</label>
+	 <input type="date" name="journeydate" min="2021-04-19" max="2021-04-26" id="JournDate"required /> <br />
+	<br />
+    <label>Timings</label>
+     <input type="time" name="pickuptime" id="PickTime" required />
+	<br />
+	<br />
+	Gst: <input type="number" name="gst"id="gstvalue" value="10" readonly> <br />
+	<br />
+	<h1 style="color: Green">SENIOR CITIZEN AND GENDER</h1>
+	<input type="checkbox" name="seniorcitizenp" id="seniorcitizenp" value="Y" required>Seniour Citizen <br />
+	<br />
+	<label>Gender</label> <br />
+	<input type="radio" name="gender" value="M" id="genderselection" required>Male
+	 <input	type="radio" name="gender" value="F"id="genderselection" required>Female <br />
+    <br />
+    <button >Submit</button>
+    </div>
+    </center>
+    </form>
+    <script>
+        function Bookingtym(){
+            event.preventDefault();
+            window.location.href="seniorCitizen.html";
+        }          
+            
+        </script> 
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CAR TYPE</title>
+<style>
+	div{
+		width: 400px;
+		height: 400px;
+		padding: 80px;
+		margin: auto;
+		        margin-top: 0px;
+				border-radius: 0px;
+				background: mediumturquoise;
+		     
+	}
+	</style>
+</head>
+<body>
+	<div id="">
+	<center>
+	<h1 style="color:red">CAR TYPE</h1>
+	<form action=Bookingtime.html>
+	<table border="5">
+		<thead>
+			<tr>
+				<th>S.NO</th>
+				<th>Type</th>
+				<th>Price per kilometer</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>1</th>
+				<th>MICRO</th>
+				<th>Rs.10 per kilometer</th>
+			</tr>
+			<tr>
+				<th>2</th>
+				<th>MINI</th>
+				<th>Rs.15 per kilometer</th>
+			</tr>
+			<tr>
+				<th>3</th>
+				<th>PRIME</th>
+				<th>Rs.20 per kilometer</th>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<br/>
+	<lable>Select CAB type:</lable>
+	<select name="Cartype" required>
+		<option disabled> --Select Car type--</option>
+		<option value= "MICRO">Micro</option>
+		<option value= "MINI">Mini</option>
+		<option value= "PRIME">Prime</option>
+	</select>
+	<br />
+	<br />
+	<lable for="kilometers">Enter the travel kilometers:</lable>
+	<input type="number" name="kilometers" id="Kilometers" required><br />
+	<br />
+    <button>Submit</button>
+    <button type= onclick="cartypefn()">SUBMIT</button>>
+</center>
+</div>>
+</form>
+    <script>
+        function cartypefn(){
+            event.preventDefault();
+            let kilometers= document.querySelector("#kilometers").value;
+            if(kilometer<100){
+                alert("100kms maximum booking limit for the cab");
+				window.location.href="bookingTime.html";
+                        }
+            }
+    </script>
+</body>
+</html>
