@@ -84,8 +84,8 @@ div{
                 peakHourRate=totalWithGstNo;
                 let peakHourRateNo=parseInt(peakHourRate);
                 alert("Normal hours so no peak hour charges: ");
-                totalAfterSeniorCitizenDiscount=peakHourRateNo*(1/2);
-                alert("Total price after senior citizen discounts and Peak hour charges: "+totalAfterSeniorCitizenDiscount);
+                totalAfterSeniorCitizenDiscount=peakHourRateNo/2;
+                alert("Total price after senior citizen discounts : "+totalAfterSeniorCitizenDiscount);
                 window.location.href="Finalpage.html?totalAfterSeniorCitizenDiscount"+totalAfterSeniorCitizenDiscount;
             }
             else                                                  //if no charges or discount apply
