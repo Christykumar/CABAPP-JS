@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>CAR TYPE</title>
+<style>
+	div{
+		width: 400px;
+		height: 500px;
+		padding: 80px;
+		margin: auto;
+		        margin-top: 50px;
+				border-radius: 10px;
+				background: mediumturquoise;
+		     
+	}
+	</style>
+</head>
+<body>
+	<div id="">
+	<center>
+	<h1 style="color:red">CAR TYPE</h1>
+	<form action=Bookingtime.html>
+	<table border="5">
+		<thead>
+			<tr>
+				<th>S.NO</th>
+				<th>Type</th>
+				<th>Price per kilometer</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>1</th>
+				<th>MICRO</th>
+				<th>Rs.10 per kilometer</th>
+			</tr>
+			<tr>
+				<th>2</th>
+				<th>MINI</th>
+				<th>Rs.15 per kilometer</th>
+			</tr>
+			<tr>
+				<th>3</th>
+				<th>PRIME</th>
+				<th>Rs.20 per kilometer</th>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<br/>
+	<label>Select CAB type:</label>
+	<select name="Cartype" id="preference" required>
+		<option disabled> --Select Car type--</option>
+		<option value= "MICRO">Micro</option>
+		<option value= "MINI">Mini</option>
+		<option value= "PRIME">Prime</option>
+	</select>
+	<br />
+	<br />
+	<label for="kilometers">Enter the travel kilometers:</label>
+	<input type="number" name="kilometers" id="Kilometers" required><br />
+	<br />
+	Gst Percentage(GST percentage will be included on total amount): <input type="number" name="gstPercent"id="gstPercent" value="10" readonly> <br />
+	<br />
+	<br />
+	<button type="button" onclick="priceCalculation()">CALCULATE FARE</button>
+	<!-- <p id="fareCalculate"></p>
+	<p id="fareCalculate1"></p> -->
+	<button type="submit" >SUBMIT</button>
+</center>
+</div>
+</form>
+    <script> 
+		function priceCalculation()
+		{
+			let Kilometer=document.querySelector("#Kilometers").value;
+			let preference=document.querySelector("#preference").value;
+			let km=parseInt(Kilometer);
+			let totalPrice;
+			                         //calculates the total fare according to the preference
+			switch(preference)      
+			{
+				case "MICRO":
+				  totalPrice=km *10;
+				  break;
+				case "MINI":
+				  totalPrice=km *20;
+				  break;
+			    case "PRIME":
+				  totalPrice=km *30;
+				  break;
+			    default:
+				  totalPrice=km*10;
+				  break;
+			}
+			alert("Total price without gst: "+totalPrice);	
+            let gstPercent=document.querySelector("#gstPercent").value;
+			let totalWithGst= totalPrice+((totalPrice*10)/100);
+			alert("Total price with gst: "+ totalWithGst);    //displays the total fare as alert
+            window.location.href="bookingTime.html?totalWithGst="+ totalWithGst;
+		}
+    </script>
+</body>
+</html>

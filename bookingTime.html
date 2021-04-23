@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>BookingTime</title>
+<style>
+div{
+    width: 400px;
+    height : 400px;
+    padding: 80px;
+    margin: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            background: gold;
+
+}
+</style>
+</head>
+<body>  
+    <center>
+            <div id="">
+	<h1 style="color: Green">JOURNEY DATE</h1>
+	<br />
+	<form action onsubmit = "seniorDiscounts()"> 
+           
+    <label>Journey Date</label>
+	 <input type="date" name="journeyDate" min="2021-04-23" max="2021-04-29" id="JournDate"required /> <br />
+	<br />
+    <label>Timings</label>
+     <input type="time" name="pickUpTime" id="pickUpTime" required />
+	<br />
+	<br />
+    <h1 style="color: Green">SENIOR CITIZEN AND GENDER</h1>
+    <label for="seniorCitizen">Enter your age</lable>
+    <br />
+	<input type="number" name="seniorCitizen" id="seniorCitizen" ><br />
+	<br />
+	<label>Gender</label> <br />
+	<input type="radio" name="gender" value="M" id="genderselection" required>Male
+	 <input	type="radio" name="gender" value="F"id="genderselection" required>Female <br />
+    <br />
+    <button type="button" onclick="seniorDiscounts()">CALCULATE FARE</button>
+ 
+    <button >Submit</button>
+    </div>
+    </center>
+    </form>
+    <script>
+        function seniorDiscounts(){
+            event.preventDefault();
+            let  totalWithGst1=window.location.search.substr(14);   //get the calculated total amount calculated by car preference 
+            let totalWithGstNo=parseInt( totalWithGst1);            //convrets it to interger format
+            let seniorCitizenCheck = document.querySelector("#seniorCitizen").value;
+            let seniorCitizenCheckNo=parseInt(seniorCitizenCheck);  //gets the senior citizen value from the user
+            let  totalAfterSeniorCitizenDiscount=0;
+            let peakHourRate=0;
+            let pickingTime= document.querySelector("#pickUpTime").value; 
+                                                                    //gets the pickup time value from the user
+            let hour=parseInt(pickingTime.substr(0,2));
+            if(seniorCitizenCheckNo>59 &&(hour>=17 && hour<=19))
+                                                                    //checks for the senior citizen ship and peak ime
+                                                                    //if both applies changes the bill amount
+            {
+                peakHourRate=totalWithGstNo+((totalWithGstNo*1.25)/100);
+                let peakHourRateNo=parseInt(peakHourRate);
+                alert("Total price after peak hour charges: "+peakHourRateNo);
+                totalAfterSeniorCitizenDiscount=peakHourRateNo/2;
+                alert("Total price after senior citizen discounts and Peak hour charges: "+totalAfterSeniorCitizenDiscount);
+                window.location.href="Finalpage.html?totalAfterSeniorCitizenDiscount"+totalAfterSeniorCitizenDiscount;
+            }
+            else if(seniorCitizenCheckNo<59 &&(hour>=17 && hour<=19))
+                                                                    //if peak hour charges only apply
+            {
+                peakHourRate=totalWithGstNo+((totalWithGstNo*1.25)/100);
+                let peakHourRateNo=parseInt(peakHourRate);
+                alert("Total price after peak hour charges: "+peakHourRateNo);
+                totalAfterSeniorCitizenDiscount=peakHourRateNo;
+                alert("No senior citizen discounts: "+totalAfterSeniorCitizenDiscount);
+                window.location.href="Finalpage.html?totalAfterSeniorCitizenDiscount"+totalAfterSeniorCitizenDiscount;
+            }
+            else if(seniorCitizenCheckNo<59 &&(hour<=17 && hour>=19))
+                                                                   //if senior citizen only apply
+            {
+                peakHourRate=totalWithGstNo;
+                let peakHourRateNo=parseInt(peakHourRate);
+                alert("Normal hours so no peak hour charges: "+peakHourRateNo);
+                totalAfterSeniorCitizenDiscount=peakHourRateNo/2;
+                alert("Total price after senior citizen discounts and Peak hour charges: "+totalAfterSeniorCitizenDiscount);
+                window.location.href="Finalpage.html?totalAfterSeniorCitizenDiscount"+totalAfterSeniorCitizenDiscount;
+            }
+            else                                                  //if no charges or discount apply
+            {
+                peakHourRate=totalWithGstNo;
+                let peakHourRateNo=parseInt(peakHourRate);
+                alert("Normal hours so no peak hour charges: "+peakHourRateNo);
+                totalAfterSeniorCitizenDiscount=peakHourRateNo;
+                alert("Total price after senior citizen discounts and Peak hour charges: "+totalAfterSeniorCitizenDiscount);
+                window.location.href="Finalpage.html?totalAfterSeniorCitizenDiscount"+totalAfterSeniorCitizenDiscount;
+            }
+        }                   
+        </script> 
+</body>
+</html>
