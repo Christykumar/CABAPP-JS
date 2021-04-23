@@ -19,57 +19,59 @@
         <div id="">
         <header>
             <br />
-            <h2>BOOK UR RIDE</h2>
+            <h1> WELCOME TO BOOKURRIDE!!!</h1>
           </header>
           <main>
-            <h1 style="color: blue">LOGIN PAGE</h1>
+            <h1 style="color: rgb(38, 0, 255)">LOGIN PAGE</h1>
            
             <form action onsubmit ="login()">
                
                 <br />
-                <lable for="Name">Enter the Name(minimum five charecters)</lable>
+                <lable for="Name">Enter the Name</lable>
                 <br />
-                <input type="text" name="Name" id="name" size="30"
+                <input autofocus type="text" name="Name" id="name" size="19"
                 placeholder="Name" required><br /> <br />
-                <lable for="MobileNo">Enter the Mobile Number</lable>
+                <label for="MobileNo">Enter the Mobile Number</lable>
                 <br />
                 <input type="number" name="MobileNo" id="MobileNo"required><br /> <br />
-                <lable for="Passcode">Enter the Passcode</lable>
+                <label for="Passcode">Enter the Passcode</lable>
                 <br /> 
-                <input type="Password" name="Passcode" id="Customerpasscode"required><br /> <br />
-                <button type= "reset">RESET</button>>
-                <button type= onclick="login()">Submit</button>>
+                <input type="Password" name="Password" id="Password"required><br /> <br />
+                <!-- <button type= "submit">SUBMIT</button>> -->
+                <button type= "reset">RESET</button>
+                <button type= onclick="login()">Submit</button>
             </form>
         </div>
             <script>
                 function login(){
                     event.preventDefault();
-                   // alert("Login btn clicked");
                     let name= document.querySelector("#name").value;
-                    let MobileNo= document.querySelector("#MobileNo").value;
-                   // alert ("Name:"+name);
-                    //alert("mobile Number :"+MobileNo);
-                    if( name.length>4)
+                    let mobileNo= document.querySelector("#MobileNo").value;
+                    alert("Mobile Number :"+mobileNo);
+                    if(name.length>3)
+                    // Check the length of the name that the name should not be less than 4 letters
                     {
-                        if(MobileNo.length = 10) {
+                        if(mobileNo.length=10 && (mobileNo/10)>5) {
+                     // checks wheather a number is a valid number by calculating lenghth and value.
                             alert("login successfull.");
                             window.location.href="cartype.html";
                         }
                         else{
-                            alert("Invalid Login Credentials(mobile number must be 10 digit)");}
-                    }
+                            alert("please enter a valid mobile number(mobile number must be 10 digit)");}
+                            
+                        }
                     else{
-                        alert("Invalid login credentials(user id wrong)");
+                        alert("Invalid login credentials(Please enter a valid name)");}
                     }
-                }
+                
             </script>
  </body>
  <h4>Instructions</h4>
  <nav>
  <ul>
  <li>MUst wear Mask</li>
- <li>No more that 2 passengers in micro and mini</li>
- <li>Prime 3 passengers allowed</li>
+ <li>No more than 2 passengers in micro and mini</li>
+ <li># passengers are allowed in prime</li>
  </ul>
  </nav>
 </main>
